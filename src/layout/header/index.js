@@ -1,16 +1,19 @@
 import styled from "styled-components";
 import { MdSportsHandball } from "react-icons/md";
 import { IconContext } from "react-icons";
+import { Container } from "../../shared/components/container";
 
 const HeaderWrapper = styled.header`
-  // background-color: #72b1eb;
   background-color: white;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  flex-shrink: 0;
+`;
+
+const HeaderInnerWrapper = styled(Container)`
   height: 3rem;
   display: flex;
   align-items: center;
   padding: 0 1rem;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  flex-shrink: 0;
 `;
 
 const Title = styled.h2`
@@ -29,15 +32,21 @@ const Title = styled.h2`
 function Header() {
   return (
     <HeaderWrapper>
-      <IconContext.Provider
-        value={{ size: "2rem", color: "#72b1eb", style: { cursor: "pointer" } }}
-      >
-        <MdSportsHandball />
-      </IconContext.Provider>
-      <Title>
-        合太綜合體育館
-        <span>線上預約系統</span>
-      </Title>
+      <HeaderInnerWrapper>
+        <IconContext.Provider
+          value={{
+            size: "2rem",
+            color: "#72b1eb",
+            style: { cursor: "pointer" },
+          }}
+        >
+          <MdSportsHandball />
+        </IconContext.Provider>
+        <Title>
+          合太綜合體育館
+          <span>線上預約系統</span>
+        </Title>
+      </HeaderInnerWrapper>
     </HeaderWrapper>
   );
 }
