@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { MdSportsHandball } from "react-icons/md";
-import { IconContext } from "react-icons";
 import { Container } from "../../shared/components/container";
 import Menu from "../../components/menu";
 import { Link } from "react-router-dom";
@@ -44,14 +43,7 @@ function Header() {
       <HeaderInnerWrapper>
         <Link to="/">
           <Logo>
-            <IconContext.Provider
-              value={{
-                size: "2rem",
-                color: "#72b1eb",
-              }}
-            >
-              <MdSportsHandball />
-            </IconContext.Provider>
+            <MdSportsHandball size="2rem" color="#72b1eb" />
             <Title>
               合太綜合體育館
               <span>線上預約系統</span>

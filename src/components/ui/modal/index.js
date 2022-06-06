@@ -35,6 +35,7 @@ const ModalContent = styled.div`
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  max-width: 320px;
 `;
 
 const ModalHeader = styled.div`
@@ -79,17 +80,19 @@ function Modal({
         <ModalHeader>
           {header}
           {hasClose && (
-            <IconContext.Provider
-              value={{ size: "1rem", style: { cursor: "pointer" } }}
-            >
-              <AiOutlineClose onClick={onClose} />
-            </IconContext.Provider>
+            <AiOutlineClose
+              onClick={onClose}
+              cursor="pointer"
+              style={{ marginLeft: "auto" }}
+            />
           )}
         </ModalHeader>
         <ModalBody>{body}</ModalBody>
-        <ModalFooter>
-          <small>{footer}</small>
-        </ModalFooter>
+        {footer && (
+          <ModalFooter>
+            <small>{footer}</small>
+          </ModalFooter>
+        )}
       </ModalContent>
     </ModalContainer>
   );
