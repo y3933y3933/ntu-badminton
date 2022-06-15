@@ -40,6 +40,7 @@ const ItemWrapper = styled.div`
 `;
 
 function MenuItem({ menu }) {
+  console.log(menu);
   if (!menu) {
     return null;
   }

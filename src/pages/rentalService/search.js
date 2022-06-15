@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Select from "../../components/ui/select";
 import DatePicker from "react-datepicker";
 import { useState } from "react";
-import Button from "../../components/button";
+import Button from '../../components/ui/button'
 import "react-datepicker/dist/react-datepicker.css";
 import { FcInfo } from "react-icons/fc";
 import Modal from "../../components/ui/modal";
@@ -111,7 +111,7 @@ function Search() {
       <SearchWrapper>
         <Row>
           <Label>場地：</Label>
-          <Select options={options} />
+          <Select options={options} defaultValue={options[0]} />
           <FcInfo
             onClick={() => setShowModal(true)}
             size="1.2rem"

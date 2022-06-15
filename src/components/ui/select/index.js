@@ -29,9 +29,9 @@ const OptionsWrapper = styled.div`
   z-index: 5;
 `;
 
-function Select({ placeholder, options = [] }) {
+function Select({ placeholder = "請選擇", options = [], defaultValue = null }) {
   const [open, setOpen] = useState(false);
-  const [selected, setSelected] = useState(null);
+  const [selected, setSelected] = useState(defaultValue);
   const wrapperRef = useRef(null);
 
   useEffect(() => {
@@ -51,7 +51,6 @@ function Select({ placeholder, options = [] }) {
     };
   }, [wrapperRef]);
 
-
   function toggle() {
     setOpen(!open);
   }
@@ -67,7 +66,7 @@ function Select({ placeholder, options = [] }) {
         onClick={toggle}
         style={{ borderColor: open ? "#63a8e7" : "#dfdfdf" }}
       >
-        {selected ? selected.label : "請選擇"}
+        {selected ? selected.label : placeholder}
         {open ? <BiChevronUp size="1.5rem" /> : <BiChevronDown size="1.5rem" />}
       </SelectContainer>
       {open && options.length > 0 && (
